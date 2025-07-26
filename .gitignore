@@ -1,0 +1,177 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging
+.env.*.local
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist
+.serverless/
+
+# Frontend specific
+# React
+build/
+public/static/js/*.js.map
+public/static/css/*.css.map
+
+# Vue.js
+dist/
+.nuxt/
+
+# Angular
+dist/
+tmp/
+.angular/
+
+# Svelte
+.svelte-kit/
+package/
+
+# Vite
+dist/
+.vite/
+
+# Webpack
+.webpack/
+
+# Parcel
+.cache/
+.parcel-cache/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+.pnpm/
+.eslintcache
+.stylelintcache
+
+# Coverage reports
+coverage/
+*.lcov
+.nyc_output
+
+# Testing
+test-results/
+playwright-report/
+test-results/
+coverage/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Certificate files
+*.pem
+*.key
+*.crt
+*.p12
+
+# Config files with sensitive data
+config.json
+secrets.json
+
+# Upload directories
+uploads/
+public/uploads/
+
+# Mobile development
+# React Native
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Expo
+.expo/
+web-build/
+dist/
+
+# Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Docker
+.dockerignore
+Dockerfile*
+docker-compose*.yml
+
+# Monitoring
+.pm2/
+newrelic_agent.log
+
+# Storybook
+.out
+.storybook-out
+storybook-static
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
