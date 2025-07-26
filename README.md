@@ -91,7 +91,7 @@ Codient/
    Create a `.env` file in the Backend directory:
    ```env
    GOOGLE_GEMINI_KEY=your_gemini_api_key_here
-   PORT=5000
+   PORT=3000
    ```
 
 ### 🔑 Getting Google Gemini API Key
@@ -110,7 +110,7 @@ Codient/
    cd Backend
    npm run dev
    ```
-   Server will run on `http://localhost:5000`
+   Server will run on `http://localhost:3000`
 
 2. **Start the Frontend (in a new terminal)**
    ```bash
