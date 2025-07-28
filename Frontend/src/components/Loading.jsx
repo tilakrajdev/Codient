@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Loading.css";
 
 const Loading = () => {
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [currentStep, setCurrentStep] = useState("Initializing Codient AI...");
+
   useEffect(() => {
     // Console welcome message
     console.log(`
@@ -25,200 +28,137 @@ const Loading = () => {
     
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     `);
+
+    // Simulate loading progress
+    const steps = [
+      { text: "Initializing Codient AI...", duration: 800 },
+      { text: "Loading Neural Networks...", duration: 700 },
+      { text: "Connecting to Gemini AI...", duration: 600 },
+      { text: "Setting up Code Analyzer...", duration: 500 },
+      { text: "Ready for Code Review!", duration: 400 },
+    ];
+
+    let currentStepIndex = 0;
+    let progress = 0;
+
+    const progressInterval = setInterval(() => {
+      progress += Math.random() * 15 + 5;
+      if (progress > 100) progress = 100;
+      setLoadingProgress(progress);
+
+      if (currentStepIndex < steps.length - 1) {
+        if (progress > (currentStepIndex + 1) * 20) {
+          currentStepIndex++;
+          setCurrentStep(steps[currentStepIndex].text);
+        }
+      }
+
+      if (progress >= 100) {
+        clearInterval(progressInterval);
+        setCurrentStep("Ready for Code Review!");
+      }
+    }, 150);
+
+    return () => clearInterval(progressInterval);
   }, []);
 
   return (
     <div className="loading-container">
       <div className="loading-content">
-        {/* Modern AI Neural Network Logo */}
-        <div className="ai-logo-container">
-          <svg
-            className="ai-neural-logo"
-            viewBox="0 0 120 120"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+        {/* Simple AI Logo */}
+        <div className="ai-logo">
+          <svg width="80" height="80" viewBox="0 0 80 80" className="logo-svg">
             <defs>
               <linearGradient
-                id="neuralGradient"
+                id="aiGradient"
                 x1="0%"
                 y1="0%"
                 x2="100%"
                 y2="100%"
               >
-                <stop offset="0%" stopColor="#00d4ff" />
-                <stop offset="50%" stopColor="#5b73ff" />
-                <stop offset="100%" stopColor="#ff006e" />
+                <stop offset="0%" stopColor="#a78bfa" />
+                <stop offset="50%" stopColor="#8b5cf6" />
+                <stop offset="100%" stopColor="#7c3aed" />
               </linearGradient>
-              <filter id="aiGlow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                <feMerge>
-                  <feMergeNode in="coloredBlur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
             </defs>
-
-            {/* Central AI Core */}
             <circle
-              cx="60"
-              cy="60"
-              r="8"
-              fill="url(#neuralGradient)"
-              filter="url(#aiGlow)"
-              className="ai-core"
-            />
-
-            {/* Neural Network Nodes */}
-            <circle
-              cx="30"
-              cy="30"
-              r="4"
-              fill="url(#neuralGradient)"
-              className="neural-node node-1"
-            />
-            <circle
-              cx="90"
-              cy="30"
-              r="4"
-              fill="url(#neuralGradient)"
-              className="neural-node node-2"
-            />
-            <circle
-              cx="20"
-              cy="60"
-              r="4"
-              fill="url(#neuralGradient)"
-              className="neural-node node-3"
-            />
-            <circle
-              cx="100"
-              cy="60"
-              r="4"
-              fill="url(#neuralGradient)"
-              className="neural-node node-4"
-            />
-            <circle
-              cx="30"
-              cy="90"
-              r="4"
-              fill="url(#neuralGradient)"
-              className="neural-node node-5"
-            />
-            <circle
-              cx="90"
-              cy="90"
-              r="4"
-              fill="url(#neuralGradient)"
-              className="neural-node node-6"
-            />
-
-            {/* Connection Lines */}
-            <line
-              x1="30"
-              y1="30"
-              x2="60"
-              y2="60"
-              stroke="url(#neuralGradient)"
+              cx="40"
+              cy="40"
+              r="35"
+              fill="none"
+              stroke="url(#aiGradient)"
               strokeWidth="2"
-              opacity="0.7"
-              className="connection c1"
+            />
+            <circle cx="40" cy="40" r="8" fill="url(#aiGradient)" />
+            <circle cx="25" cy="25" r="3" fill="url(#aiGradient)" />
+            <circle cx="55" cy="25" r="3" fill="url(#aiGradient)" />
+            <circle cx="25" cy="55" r="3" fill="url(#aiGradient)" />
+            <circle cx="55" cy="55" r="3" fill="url(#aiGradient)" />
+            <line
+              x1="25"
+              y1="25"
+              x2="32"
+              y2="32"
+              stroke="url(#aiGradient)"
+              strokeWidth="1"
             />
             <line
-              x1="90"
-              y1="30"
-              x2="60"
-              y2="60"
-              stroke="url(#neuralGradient)"
-              strokeWidth="2"
-              opacity="0.7"
-              className="connection c2"
+              x1="55"
+              y1="25"
+              x2="48"
+              y2="32"
+              stroke="url(#aiGradient)"
+              strokeWidth="1"
             />
             <line
-              x1="20"
-              y1="60"
-              x2="60"
-              y2="60"
-              stroke="url(#neuralGradient)"
-              strokeWidth="2"
-              opacity="0.7"
-              className="connection c3"
+              x1="25"
+              y1="55"
+              x2="32"
+              y2="48"
+              stroke="url(#aiGradient)"
+              strokeWidth="1"
             />
             <line
-              x1="100"
-              y1="60"
-              x2="60"
-              y2="60"
-              stroke="url(#neuralGradient)"
-              strokeWidth="2"
-              opacity="0.7"
-              className="connection c4"
+              x1="55"
+              y1="55"
+              x2="48"
+              y2="48"
+              stroke="url(#aiGradient)"
+              strokeWidth="1"
             />
-            <line
-              x1="30"
-              y1="90"
-              x2="60"
-              y2="60"
-              stroke="url(#neuralGradient)"
-              strokeWidth="2"
-              opacity="0.7"
-              className="connection c5"
-            />
-            <line
-              x1="90"
-              y1="90"
-              x2="60"
-              y2="60"
-              stroke="url(#neuralGradient)"
-              strokeWidth="2"
-              opacity="0.7"
-              className="connection c6"
-            />
-
-            {/* Data Flow Particles */}
-            <circle r="2" fill="#00d4ff" className="data-particle p1">
-              <animateMotion dur="3s" repeatCount="indefinite">
-                <path d="M30,30 Q45,45 60,60" />
-              </animateMotion>
-            </circle>
-            <circle r="2" fill="#ff006e" className="data-particle p2">
-              <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
-                <path d="M90,30 Q75,45 60,60" />
-              </animateMotion>
-            </circle>
           </svg>
         </div>
 
-        {/* Codient Text Logo */}
-        <div className="text-logo">
-          <span className="brand-text">CODIENT</span>
-          <div className="ai-badge">AI POWERED</div>
+        {/* Brand Name */}
+        <h1 className="brand-name">CODIENT</h1>
+        <p className="brand-subtitle">AI Code Reviewer</p>
+
+        {/* Creator Info */}
+        <div className="creator-info">
+          <span className="creator-label">CREATED BY</span>
+          <span className="creator-name">Tilak</span>
         </div>
 
-        {/* Loading Text */}
-        <div className="loading-text">
-          <p className="ai-tagline">Neural Code Analysis Loading...</p>
-        </div>
-
-        {/* Loading Animation */}
+        {/* Loading Spinner */}
         <div className="loading-spinner">
-          <div className="spinner-ring">
-            <div className="spinner-dot"></div>
-            <div className="spinner-dot"></div>
-            <div className="spinner-dot"></div>
-            <div className="spinner-dot"></div>
-          </div>
+          <div className="spinner"></div>
         </div>
 
         {/* Progress Bar */}
         <div className="progress-container">
           <div className="progress-bar">
-            <div className="progress-fill"></div>
+            <div
+              className="progress-fill"
+              style={{ width: `${loadingProgress}%` }}
+            ></div>
           </div>
-          <p className="loading-status">Initializing AI Engine...</p>
+          <div className="progress-info">
+            <span className="progress-percent">
+              {Math.round(loadingProgress)}%
+            </span>
+            <span className="progress-status">{currentStep}</span>
+          </div>
         </div>
-
-        {/* Creator Tag - Compact */}
-        <div className="creator-compact">by Tilak</div>
       </div>
     </div>
   );
