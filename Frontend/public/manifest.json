@@ -1,0 +1,29 @@
+{
+  "name": "Codient - AI-Powered Code Review Tool",
+  "short_name": "Codient",
+  "description": "AI-powered code review system that leverages artificial intelligence to analyze, review, and suggest improvements for code",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/src/assets/redketchup/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["developer", "productivity", "utilities"],
+  "lang": "en",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/src/assets/redketchup/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon",
+      "form_factor": "wide"
+    }
+  ]
+}
