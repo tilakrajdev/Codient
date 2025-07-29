@@ -11,7 +11,10 @@ app.use(express.json()); // ✅ To parse JSON request bodies
 app.use(cors()); // ✅ Enable CORS
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send({
+    activeStatus: true,
+    error: false
+  });
 });
 
 app.use("/ai", aiRoutes); // ✅ Corrected prefix from 'ai' to '/ai'
