@@ -28,10 +28,10 @@ function App() {
   useEffect(() => {
     prism.highlightAll();
 
-    // Simulate loading time
+    // Simulate loading time - reduced for better UX
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1500);
 
     return () => clearTimeout(loadingTimer);
   }, []);
@@ -121,7 +121,10 @@ ${
         customPrompt ? "with custom prompt" : ""
       );
 
-      const response = await axios.post("http://localhost:3000/ai/get-review", {
+      // Use environment variable for API URL, fallback to production URL
+      const API_BASE_URL = import.meta.env.VITE_API_URL || "https://codient-beryl.vercel.app";
+      
+      const response = await axios.post(`${API_BASE_URL}/ai/get-review`, {
         code: enhancedAnalysisPrompt,
       });
 
@@ -146,7 +149,7 @@ ${
 ## 🔧 Quick Troubleshooting:
 
 ### Backend Issues:
-- ✅ **Check if server is running** on \`http://localhost:3000\`
+- ✅ **Check if server is running** on \`https://codient-beryl.vercel.app\`
 - ✅ **Restart the backend** with \`npm start\`
 - ✅ **Verify .env file** has Gemini API key
 
